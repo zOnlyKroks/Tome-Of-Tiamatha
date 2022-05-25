@@ -170,15 +170,15 @@ public class DungeonGenerator {
                 }
                 possibleElementsToSpawn.addAll(terminatorPool.get().getElementIndicesInRandomOrder(this.random)); // Add in terminator elements.
 
+                if(hasPreRoomGenerated && structureBlockTargetPoolId.toUnderscoreSeparatedString().equalsIgnoreCase("tot_boss_pool")) continue;
+
+                if(structureBlockTargetPoolId.toUnderscoreSeparatedString().equalsIgnoreCase("tot_boss_pool")) {
+                    this.hasPreRoomGenerated = true;
+                }
+
                 for (StructurePoolElement iteratedStructureElement : possibleElementsToSpawn) {
                     if (iteratedStructureElement == EmptyPoolElement.INSTANCE)
                         break;
-
-                    if(hasPreRoomGenerated && structureBlockTargetPoolId.toUnderscoreSeparatedString().equalsIgnoreCase("tot_boss_pool")) break;
-
-                    if(structureBlockTargetPoolId.toUnderscoreSeparatedString().equalsIgnoreCase("tot_boss_pool")) {
-                        this.hasPreRoomGenerated = true;
-                    }
 
                     boolean placed = tryPlacePiece(piece, currentSize, world, boundsMinY, structureBlock, structureShape, structureBlockFaceDirection, structureBlockPosition, structureBlockAimPosition, iteratedStructureElement, currentSize >= 2);
                     if(placed)

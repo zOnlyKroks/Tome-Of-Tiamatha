@@ -25,9 +25,8 @@ public class NoWaterProcessor extends StructureProcessor {
 
         if (structureBlockInfoWorld.state.contains(Properties.WATERLOGGED) && !chunk.getFluidState(structureBlockInfoWorld.pos).isEmpty()) {
             Block block = chunk.getBlockState(pos).getBlock();
-            chunk.setBlockState(pos,Blocks.AIR.getDefaultState(),false);
-            chunk.setBlockState(pos,Blocks.AIR.getDefaultState(),false);
-            chunk.setBlockState(pos,block.getDefaultState(),false);
+            chunk.setBlockState(pos,Blocks.AIR.getDefaultState(),true);
+            chunk.setBlockState(pos,block.getDefaultState(),true);
         }
 
         return structureBlockInfoWorld;
