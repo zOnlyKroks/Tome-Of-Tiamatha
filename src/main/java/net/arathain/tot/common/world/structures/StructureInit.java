@@ -18,7 +18,7 @@ public class StructureInit {
 
     public static void registerStructureFeatures() {
         // Create structure config using config values.
-        StructureFeatureAccessor.callRegister(DUNGEON_IDENTIFIER.toString(), DUNGEON, GenerationStep.Feature.SURFACE_STRUCTURES);
+        StructureFeatureAccessor.callRegister(DUNGEON_IDENTIFIER.toString(), DUNGEON, GenerationStep.Feature.UNDERGROUND_STRUCTURES);
 
         Registry.register(Registry.STRUCTURE_PROCESSOR, new Identifier(TomeOfTiamatha.MODID, "nowater_processor"), NOWATER_PROCESSOR);
     }
