@@ -3,7 +3,7 @@
   "fallback": "tot:end",
   "elements": [
     {
-      "weight": 25,
+      "weight": 18,
       "element": {
         "location": "tot:hallway_floor_two_long",
         "processors": "tot:decayer",
@@ -12,7 +12,7 @@
       }
     },
     {
-      "weight": 30,
+      "weight": 19,
       "element": {
         "location": "tot:hallway_short_floor2",
         "processors": "tot:decayer",
@@ -21,7 +21,7 @@
       }
     },
     {
-      "weight": 20,
+      "weight": 12,
       "element": {
         "location": "tot:trap_room1_floor2",
         "processors": "tot:decayer",
@@ -30,7 +30,7 @@
       }
     },
     {
-      "weight": 20,
+      "weight": 10,
       "element": {
         "location": "tot:trap_room2_floor2",
         "processors": "tot:decayer",

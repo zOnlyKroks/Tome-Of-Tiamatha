@@ -2,6 +2,7 @@ package net.arathain.tot.common.world.structures;
 
 import com.mojang.serialization.Codec;
 import net.arathain.tot.TomeOfTiamatha;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.state.property.Properties;
 import net.minecraft.structure.Structure;
@@ -23,8 +24,12 @@ public class NoWaterProcessor extends StructureProcessor {
         Chunk chunk = world.getChunk(structureBlockInfoWorld.pos);
 
         if (structureBlockInfoWorld.state.contains(Properties.WATERLOGGED) && !chunk.getFluidState(structureBlockInfoWorld.pos).isEmpty()) {
-            chunk.setBlockState(structureBlockInfoWorld.pos, structureBlockInfoWorld.state.rotate(data.getRotation()).with(Properties.WATERLOGGED, false), false);
+            Block block = chunk.getBlockState(pos).getBlock();
+            chunk.setBlockState(pos,Blocks.AIR.getDefaultState(),false);
+            chunk.setBlockState(pos,Blocks.AIR.getDefaultState(),false);
+            chunk.setBlockState(pos,block.getDefaultState(),false);
         }
+
         return structureBlockInfoWorld;
     }
 

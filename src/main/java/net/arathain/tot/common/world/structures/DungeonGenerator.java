@@ -75,7 +75,7 @@ public class DungeonGenerator {
         return Optional.of((structurePiecesCollector, context) -> {
             ArrayList<PoolStructurePiece> list = Lists.newArrayList(poolStructurePiece);
 
-            Box box = new Box(centerX - 280, y - 280, centerZ - 280, centerX + 280 + 1, y + 280 + 1, centerZ + 280 + 1);
+            Box box = new Box(centerX - 600, y - 600, centerZ - 600, centerX + 600 + 1, y + 600 + 1, centerZ + 600 + 1);
             StructurePoolGenerator structurePoolGenerator = new StructurePoolGenerator(registry, size, pieceFactory, chunkGenerator, structureManager, list, chunkRandom);
             structurePoolGenerator.structurePieces.addLast(new ShapedPoolStructurePiece(poolStructurePiece, new MutableObject<>(VoxelShapes.combineAndSimplify(VoxelShapes.cuboid(box), VoxelShapes.cuboid(Box.from(pieceBoundingBox)), BooleanBiFunction.ONLY_FIRST)), 0, null));
 
@@ -103,6 +103,8 @@ public class DungeonGenerator {
         final Deque<ShapedPoolStructurePiece> structurePieces = Queues.newArrayDeque();
 
         final StructurePool end_cap;
+
+        boolean hasPreRoomGenerated = false;
 
         StructurePoolGenerator(Registry<StructurePool> registry, int maxSize, PieceFactory pieceFactory, ChunkGenerator chunkGenerator, StructureManager structureManager, List<? super PoolStructurePiece> children, Random random) {
             this.registry = registry;
@@ -171,6 +173,12 @@ public class DungeonGenerator {
                 for (StructurePoolElement iteratedStructureElement : possibleElementsToSpawn) {
                     if (iteratedStructureElement == EmptyPoolElement.INSTANCE)
                         break;
+
+                    if(hasPreRoomGenerated && structureBlockTargetPoolId.toUnderscoreSeparatedString().equalsIgnoreCase("tot_boss_pool")) break;
+
+                    if(structureBlockTargetPoolId.toUnderscoreSeparatedString().equalsIgnoreCase("tot_boss_pool")) {
+                        this.hasPreRoomGenerated = true;
+                    }
 
                     boolean placed = tryPlacePiece(piece, currentSize, world, boundsMinY, structureBlock, structureShape, structureBlockFaceDirection, structureBlockPosition, structureBlockAimPosition, iteratedStructureElement, currentSize >= 2);
                     if(placed)
