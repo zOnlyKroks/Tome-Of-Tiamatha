@@ -1,8 +1,12 @@
 {
   "type": "tot:boss_dungeon",
   "config": {
+    "probability": 0.001,
     "start_pool": "tot:start_pool",
-    "size": 1
+    "size": 2,
+    "size": 10,
+    "max_y": 130,
+    "min_y": 0
   },
   "biomes": "#tot:has_structure/boss_dungeon",
   "adapt_noise": true,

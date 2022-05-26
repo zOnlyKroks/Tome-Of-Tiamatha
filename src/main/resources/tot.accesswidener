@@ -6,3 +6,10 @@ accessible    field    net/minecraft/entity/LivingEntity  itemUseTimeLeft I
 accessible    field    net/minecraft/entity/ai/goal/BowAttackGoal actor Lnet/minecraft/entity/mob/HostileEntity;
 accessible    method   net/minecraft/entity/damage/DamageSource setUnblockable ()Lnet/minecraft/entity/damage/DamageSource;
 accessible    method   net/minecraft/entity/FallingBlockEntity <init> (Lnet/minecraft/world/World;DDDLnet/minecraft/block/BlockState;)V
+accessible    method    net/minecraft/util/registry/Registry    createRegistryKey    (Ljava/lang/String;)Lnet/minecraft/util/registry/RegistryKey;
+accessible    field    net/minecraft/world/gen/feature/StructurePoolFeatureConfig    startPool    Lnet/minecraft/util/Holder;
+
+accessible method net/minecraft/util/math/BlockBox getMaxX ()I
+accessible method net/minecraft/util/math/BlockBox getMaxY ()I
+accessible method net/minecraft/util/math/BlockBox getMinX ()I
+accessible method net/minecraft/util/math/BlockBox getMinY ()I

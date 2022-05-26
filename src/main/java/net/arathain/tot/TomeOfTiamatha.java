@@ -9,7 +9,9 @@ import net.arathain.tot.common.network.packet.DriderComponentPacket;
 import net.arathain.tot.common.network.packet.RemorsePacket;
 import net.arathain.tot.common.util.ToTCallbacks;
 import net.arathain.tot.common.util.config.ToTConfig;
+import net.arathain.tot.common.world.structures.JSONConditionsRegistry;
 import net.arathain.tot.common.world.structures.StructureInit;
+import net.arathain.tot.common.world.structures.StructurePieceCountsManager;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -28,6 +30,8 @@ public class TomeOfTiamatha implements ModInitializer {
 	public static final ToTConfig CONFIG = OmegaConfig.register(ToTConfig.class);
 	public static final Logger LOGGER = LoggerFactory.getLogger("tot");
 
+	public static StructurePieceCountsManager structurePieceCountsManager = new StructurePieceCountsManager();
+
 	@Override
 	public void onInitialize(ModContainer mod) {
 		ToTObjects.init();
@@ -35,7 +39,7 @@ public class TomeOfTiamatha implements ModInitializer {
 		ToTEntities.init();
 		ToTEffects.init();
 		ToTScaleTypes.init();
-		StructureInit.registerStructureFeatures();
+		StructureInit.registerStructures();
 		ServerPlayNetworking.registerGlobalReceiver(DriderComponentPacket.ID, DriderComponentPacket::handle);
 		ServerPlayNetworking.registerGlobalReceiver(RemorsePacket.ID, RemorsePacket::handle);
 		UseBlockCallback.EVENT.register(ToTCallbacks::stringUseEvent);
