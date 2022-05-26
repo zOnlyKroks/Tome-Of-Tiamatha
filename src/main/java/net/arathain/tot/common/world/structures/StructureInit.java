@@ -13,11 +13,11 @@ public class StructureInit {
 
     public StructureInit() {}
 
+    public static final Identifier DUNGEON_IDENTIFIER = new Identifier(TomeOfTiamatha.MODID, "boss_dungeon");
     public static StructureFeature<?> DUNGEON_STRUCTURE = new DungeonStructure<>(DungeonStructureConfig.CODEC);
 
     public static void registerStructures() {
-        Registry.register(Registry.STRUCTURE_FEATURE, new Identifier(TomeOfTiamatha.MODID, "boss_dungeon"), DUNGEON_STRUCTURE);
-
+        StructureFeatureAccessor.callRegister(DUNGEON_IDENTIFIER.toString(), DUNGEON_STRUCTURE,GenerationStep.Feature.SURFACE_STRUCTURES);
         StructureFeatureAccessor.getSTEP().put(DUNGEON_STRUCTURE, GenerationStep.Feature.SURFACE_STRUCTURES);
     }
 }

@@ -1,9 +1,7 @@
 {
   "type": "tot:boss_dungeon",
   "config": {
-    "probability": 0.001,
     "start_pool": "tot:start_pool",
-    "size": 2,
     "size": 10,
     "max_y": 130,
     "min_y": 0

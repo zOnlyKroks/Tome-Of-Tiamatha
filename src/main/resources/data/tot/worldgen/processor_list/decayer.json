@@ -103,9 +103,6 @@
         }
       ],
       "processor_type": "minecraft:rule"
-    },
-    {
-      "processor_type": "tot:nowater_processor"
     }
   ]
 }

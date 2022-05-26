@@ -23,7 +23,7 @@ public class StructurePieceCountsManager extends JsonDataLoader {
     private final Map<Identifier, Map<Identifier, Integer>> cachedMaxCountPiecesMap = new HashMap<>();
 
     public StructurePieceCountsManager() {
-        super(GSON, "rs_pieces_spawn_counts");
+        super(GSON, "pieces_spawn_counts");
     }
 
     @MethodsReturnNonnullByDefault
